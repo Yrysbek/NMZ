@@ -1,0 +1,161 @@
+html, body { height: 100%; margin: 0; }
+
+#map { 
+    height: 100%; 
+    width: 99.5%;
+    float: right;
+}
+
+.shadow{
+    float: left;
+    height: 100%;
+    width: 0.5%;
+    background: url(../img/shadow.png);
+    background-repeat: repeat-y;
+}
+
+#td_left {
+    padding-left: 5px;
+    width: 20%;
+    height: 100%;
+}
+
+#td_right {
+    width: 80%;
+    height: 100%;
+}
+
+#table {
+    margin-bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#logo_image{
+    background-image: url("../img/logo.png");
+    background-size: 100%;
+    width: 70px;
+    height: 70px;
+    float: left;
+}
+
+#logo_block{
+    height: 100px;
+/*    border: 4px double black;  Параметры границы 
+    background: #fc3;  Цвет фона 
+    padding: 10px;  Поля вокруг текста */
+}
+
+.title{
+}
+
+#ajax-load {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 9999;
+    display: none;
+}
+
+#ajax-load-back{
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0.3;
+}
+
+#ajax-load-gif{
+    background-image: url("../img/ajax-loader.gif");
+    background-size: 100%;
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+#form_block{
+    margin-left: 5px;
+}
+
+.btnStyle {
+    -moz-box-shadow:inset 0px 0px 0px 0px #dcecfb;
+    -webkit-box-shadow:inset 0px 0px 0px 0px #dcecfb;
+    box-shadow:inset 0px 0px 0px 0px #dcecfb;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #58d158), color-stop(1, #076617) );
+    background:-moz-linear-gradient( center top, #58d158 5%, #076617 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#58d158', endColorstr='#076617');
+    background-color:#58d158;
+    border:1px solid #2d6633;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    font-weight:bold;
+    font-style:normal;
+    height:31px;
+    line-height:31px;
+    width:188px;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #295c25;
+}
+.btnStyle:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #076617), color-stop(1, #58d158) );
+    background:-moz-linear-gradient( center top, #076617 5%, #58d158 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#076617', endColorstr='#58d158');
+    background-color:#076617;
+}.btnStyle:active {
+    position:relative;
+    top:1px;
+}
+/* This button was generated using CSSButtonGenerator.com */
+
+input[type=radio].css-checkbox {
+    display:none;
+}
+
+input[type=radio].css-checkbox + label.css-label {
+    padding-left:25px;
+    height:20px; 
+    display:inline-block;
+    line-height:20px;
+    background-repeat:no-repeat;
+    background-position: 0 0;
+    font-size:20px;
+    vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=radio].css-checkbox:checked + label.css-label {
+    background-position: 0 -20px;
+}
+
+label.css-label {
+    background-image:url("../img/csscheckbox.png");
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.form_text
+{
+    //text-shadow:1px 1px 1px rgba(2,115,2,1);
+    color:#000000;
+    letter-spacing:0pt;
+    word-spacing:2pt;
+    font-size:18px;
+    text-align:left;
+    font-family: arial, comic sans, comic sans ms, cursive, verdana, sans-serif;
+    font-weight: bold;
+    line-height:1;
+}
