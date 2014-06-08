@@ -122,7 +122,7 @@
     </point>
     <point>
         <type>mosque</type>
-        <gender>male</gender>
+        <gender>joint</gender>
         <name>Айша</name>
         <description></description>
         <address></address>
@@ -248,7 +248,7 @@
     </point>
     <point>
         <type>mosque</type>
-        <gender>male</gender>
+        <gender>joint</gender>
         <name>Аль Иман</name>
         <description>Ленинградская - М.Гвардия</description>
         <address>К.Баялинова - М.Ганди</address>
@@ -404,12 +404,12 @@
     </point>
     <point>
         <type>prayerroom</type>
-        <gender>male</gender>
+        <gender>joint</gender>
         <name>Обувь</name>
-        <description></description>
+        <description>Ориентир: MediStom(стоматология)</description>
         <address>Киев - Эркиндик</address>
-        <latitude>42.87464</latitude>
-        <longitude>74.61039</longitude>
+        <latitude>42.87489</latitude>
+        <longitude>74.60838</longitude>
     </point>
     <point>
         <type>prayerroom</type>
@@ -530,7 +530,7 @@
     </point>
     <point>
         <type>prayerroom</type>
-        <gender>male</gender>
+        <gender>joint</gender>
         <name>Ош базар</name>
         <description>Подвал</description>
         <address>Бейшеналиева</address>
@@ -710,9 +710,9 @@
     </point>
     <point>
         <type>prayerroom</type>
-        <gender>male</gender>
+        <gender>joint</gender>
         <name>VEFA</name>
-        <description></description>
+        <description>Подвал, автостоянка</description>
         <address>Советская - Горького</address>
         <latitude>42.85730</latitude>
         <longitude>74.60984</longitude>
@@ -806,5 +806,23 @@
         <address>ул. Баха</address>
         <latitude>42.85923</latitude>
         <longitude>74.56007</longitude>
+    </point>
+    <point>
+        <type>prayerroom</type>
+        <gender>male</gender>
+        <name>Кок-жар центр отдыха</name>
+        <description>Правое крыло</description>
+        <address>ул.Дэн-Сяопина (остановка Кызыл-Аскер)</address>
+        <latitude>42.87525</latitude>
+        <longitude>74.54415</longitude>
+    </point>
+    <point>
+        <type>mosque</type>
+        <gender>male</gender>
+        <name>Хайл Хижра</name>
+        <description>Напротив "Народного"</description>
+        <address>Дэн-Сяопина - Б.Алыкулова</address>
+        <latitude>42.87367</latitude>
+        <longitude>74.50832</longitude>
     </point>
 </points>

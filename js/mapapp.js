@@ -47,7 +47,7 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/respect.i8ajnf2f/{z}/{x}/{y}.png', {
         var count = $('input[name=count]:checked').val();
         var placeType = $('input[name=type]:checked').val();
         var ajaxCall = $.ajax({type: "GET",
-            url: "model/getNearestPoints.php",
+            url: "model/getPoints.php",
             data: "gender="+gender+"&count="+count+"&lat="+lat+"&lng="+lng+"&type="+placeType
         });
 
@@ -151,7 +151,25 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/respect.i8ajnf2f/{z}/{x}/{y}.png', {
         });
 
     });
-        
+     
+    $("#btn_filter").click(function() {
+        fnLoadStart();
+        clearAllMarkers();
+        show_distance = false;
+        var gender = $('input[name=gender]:checked').val();
+        var placeType = $('input[name=type]:checked').val();
+        var ajaxCall = $.ajax({type: "GET",
+            url: "model/getPoints.php",
+            data: "gender=" + gender + "&type=" + placeType
+        });
+
+        $.when(ajaxCall).then(function(xml) {
+            addMarkersFromXML(xml);
+            fnLoadStop();
+        });
+
+    });
+    
     function fnLoadStart() {
         $('#ajax-load').css('display','block');
     }

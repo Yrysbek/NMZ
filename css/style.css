@@ -1,52 +1,85 @@
-html, body { height: 100%; margin: 0; }
-
-#map { 
+html, body { 
     height: 100%; 
-    width: 99.5%;
+    margin: 0; 
+    overflow: hidden; 
+}
+
+#content{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+
+#map-block { 
+    height: 100%; 
     float: right;
+    position: relative;
+    width: 77%;
+    border: 1px solid rgb(204, 204, 204);
+    box-sizing: border-box;
 }
 
-.shadow{
-    float: left;
+#map{
     height: 100%;
-    width: 0.5%;
-    background: url(../img/shadow.png);
-    background-repeat: repeat-y;
-}
-
-#td_left {
-    padding-left: 5px;
-    width: 20%;
-    height: 100%;
-}
-
-#td_right {
-    width: 80%;
-    height: 100%;
-}
-
-#table {
-    margin-bottom: 0;
     width: 100%;
-    height: 100%;
+    cursor: default;
 }
 
-#logo_image{
+#left-block{
+    height: 100%;
+    width: 22%;
+    float: left;
+    position: relative;
+}
+
+#logo-image{
     background-image: url("../img/logo.png");
     background-size: 100%;
-    width: 70px;
-    height: 70px;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 60px;
     float: left;
+    margin-right: 15px;
 }
 
-#logo_block{
-    height: 100px;
-/*    border: 4px double black;  Параметры границы 
-    background: #fc3;  Цвет фона 
-    padding: 10px;  Поля вокруг текста */
+#logo-block{
+    margin: 10px 15px;
+}
+
+#lang{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: right;
+    width: 100%;
+    position: relative;
+    text-align: right;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    padding: 0 5%;
+    width: 85%;
+    margin: 0 5%;
+    border-top: 1px solid rgb(204, 204, 204);
+}
+
+#play-google{
+    margin-bottom: 15px;
+}
+
+#social-share{
+    margin: 10px 0;
 }
 
 .title{
+    top:5px;
+    position: relative;
+    font-family:Arial;
+    font-size:16px;
+    font-weight: bold;
 }
 
 #ajax-load {
@@ -80,8 +113,8 @@ html, body { height: 100%; margin: 0; }
     right: 0;
 }
 
-#form_block{
-    margin-left: 5px;
+#form-block{
+    margin: 15px;
 }
 
 .btnStyle {
@@ -105,6 +138,7 @@ html, body { height: 100%; margin: 0; }
     text-decoration:none;
     text-align:center;
     text-shadow:1px 1px 0px #295c25;
+    margin-top: 8px;
 }
 .btnStyle:hover {
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #076617), color-stop(1, #58d158) );
@@ -128,7 +162,8 @@ input[type=radio].css-checkbox + label.css-label {
     line-height:20px;
     background-repeat:no-repeat;
     background-position: 0 0;
-    font-size:20px;
+    font-size:14px;
+    font-family: arial, comic sans, comic sans ms, cursive, verdana, sans-serif;
     vertical-align:middle;
     cursor:pointer;
 }
@@ -147,15 +182,16 @@ label.css-label {
     user-select: none;
 }
 
-.form_text
+.form-text
 {
-    //text-shadow:1px 1px 1px rgba(2,115,2,1);
+    /*text-shadow:1px 1px 1px rgba(2,115,2,1);*/
     color:#000000;
     letter-spacing:0pt;
     word-spacing:2pt;
-    font-size:18px;
+    font-size:16px;
     text-align:left;
     font-family: arial, comic sans, comic sans ms, cursive, verdana, sans-serif;
     font-weight: bold;
     line-height:1;
+    margin: 20px 0 5px;
 }
