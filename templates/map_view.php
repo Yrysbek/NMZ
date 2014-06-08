@@ -2,9 +2,10 @@
     <div id="left-block">
         <div id="logo-block">
             <div id="logo-image"></div>
-            <span class="title"><?php echo $lang['title']; ?></span>
+            <span class="title"><?php echo $lang['title_map_view']; ?></span>
         </div>
         <div id="lang"><a href="language.php?lang=ru">ru</a> | <a href="language.php?lang=en">en</a> | <a href="language.php?lang=kg">kg</a></div>
+        <div id="page-list"><a href="list.php"><?php echo $lang['page_list'];?></a></div>
         <div id="form-block">
             <input type="button" class="btnStyle" value="<?php echo $lang['btn_show_all']; ?>"  id="btn_show_all"/>
 
@@ -17,7 +18,7 @@
             <input type="radio" name="gender" value="all" class="rg_gender css-checkbox" id="r_alltype" checked/><label for="r_alltype" class="css-label"><?php echo $lang['gender_joint']; ?></label><Br>
             <input type="radio" name="gender" value="male" class="rg_gender css-checkbox" id="r_male"/><label for="r_male" class="css-label"><?php echo $lang['gender_male']; ?></label><Br>
             <input type="radio" name="gender" value="female" class="rg_gender css-checkbox" id="r_female"/><label for="r_female" class="css-label"><?php echo $lang['gender_female']; ?></label>
-            
+            <br>
             <input type="button" class="btnStyle" value="<?php echo $lang['btn_show_all_by_filter']; ?>"  id="btn_filter"/>
 
             <p class="form-text"><?php echo $lang['filter_count']; ?>:</p>
@@ -52,7 +53,7 @@
         <div id="map" class="context-menu-one"></div>
     </div>
     <div class="panel">
-	<p><?php echo $lang['help_content']; ?></p>
+	<p><?php echo $lang['map_help_content']; ?></p>
     </div>
 <a class="trigger" href="#"><?php echo $lang['btn_help']; ?></a>
 </div>

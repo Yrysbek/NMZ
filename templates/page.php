@@ -9,16 +9,8 @@
 	<head>
             <link rel="shortcut icon" href="img/logo.ico" />
             <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-            <link rel="stylesheet" href="css/leaflet.css" />
-            <script src="js/leaflet.js"></script>
-            <link href="css/style.css" rel="stylesheet" type="text/css" />
-            <link href="css/style_panel.css" rel="stylesheet" type="text/css" />
-            <link href="css/jquery.contextMenu.css" rel="stylesheet" type="text/css" />
             <script src="js/jquery-1.10.2.js"></script>
-            <script src="js/mapapp.js"></script>
-            <script src="js/jquery.contextMenu.js"></script>
-            <script src="js/jquery.ui.position.js"></script>
-            <title><?php echo $lang['title'];?></title>
+            <script src="js/jquery.paulund_modal_box.js"></script>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -29,15 +21,7 @@
 	  ga('send', 'pageview');
 
 	</script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $(".trigger").click(function(){
-                    $(".panel").toggle("fast");
-                    $(this).toggleClass("active");
-                    return false;
-                });
-            });
-        </script>
+            <?php include $header;?>
 	</head>
 <body>
 <?php

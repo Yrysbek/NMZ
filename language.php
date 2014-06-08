@@ -15,4 +15,5 @@ if(!$_SESSION['lang']){
     $_SESSION['lang'] = 'ru';    
 }
 
-header("Location: index.php");
+$url = $_SERVER['HTTP_REFERER'];
+header("Location: $url");

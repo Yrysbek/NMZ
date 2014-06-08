@@ -111,7 +111,6 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/respect.i8ajnf2f/{z}/{x}/{y}.png', {
             var distance = myPosition.distanceTo(marker.getLatLng()).toFixed(2);
             output_str += "<br>Расстояние: "+distance.toString()+" м";
         }
-        getMarkerIcon(type, gender);
 
         nearMarkers.addLayer(marker);
         marker.bindPopup(output_str);
@@ -221,5 +220,5 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/respect.i8ajnf2f/{z}/{x}/{y}.png', {
         }
         // there's more, have a look at the demos and docs...
     });
-
+    
 });

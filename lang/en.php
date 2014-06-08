@@ -1,7 +1,8 @@
 <?php
 
 $lang = array();
-$lang['title'] = "Mosques and prayer rooms map of Bishkek city";
+$lang['title_map_view'] = "Mosques and prayer rooms map of Bishkek city";
+$lang['title_list_view'] = "Mosques and prayer rooms list of Bishkek city";
 $lang['btn_show_all'] = "Show all points";
 $lang['filter_type'] = "Type";
 $lang['filter_gender'] = "Prayer places";
@@ -18,7 +19,14 @@ $lang['count_5'] = "5";
 $lang['count_10'] = "10";
 $lang['btn_clear'] = "Clear";
 $lang['btn_help'] = "Help";
-$lang['help_content'] = "Click on map you position for see the nearest prayer places";
+$lang['map_help_content'] = "Click on map you position for see the nearest prayer places";
+$lang['list_help_content'] = "Click on an item of list for see information about prayer place";
 $lang['btn_show_all_by_filter'] = "All places by filter";
+$lang['place_type_mosque'] = "Mosque";
+$lang['place_type_prroom'] = "Prayer room";
+$lang['place_address'] = "Address";
+$lang['place_description'] = "Description";
+$lang['page_list'] = "Places list";
+$lang['page_map'] = "Map";
 $lang[''] = "";
 

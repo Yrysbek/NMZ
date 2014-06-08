@@ -114,7 +114,7 @@ html, body {
 }
 
 #form-block{
-    margin: 15px;
+    margin: 0px 15px 15px;
 }
 
 .btnStyle {
@@ -139,6 +139,7 @@ html, body {
     text-align:center;
     text-shadow:1px 1px 0px #295c25;
     margin-top: 8px;
+    margin-bottom: -5px;
 }
 .btnStyle:hover {
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #076617), color-stop(1, #58d158) );
@@ -194,4 +195,8 @@ label.css-label {
     font-weight: bold;
     line-height:1;
     margin: 20px 0 5px;
+}
+
+#page-list{
+    margin-left: 1em;
 }

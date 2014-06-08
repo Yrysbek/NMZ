@@ -60,5 +60,3 @@ function getPointsCollectionFromFile($xmlfile){
 	}
 	return $Collection;
 }
-
-?>
