@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<points>
+    <point>
+        <type>mosque</type>
+        <gender>female</gender>
+        <name>Undefined</name>
+        <description>Nothing</description>
+        <address>ss</address>
+        <latitude>42.8946</latitude>
+        <longitude>74.6079</longitude>
+    </point>
+    <point>
+        <type>proom</type>
+        <gender>joint</gender>
+        <name>Beta Stores</name>
+        <description>4-этаж</description>
+        <address>Чуй-Исанова</address>
+        <latitude>42.87611</latitude>
+        <longitude>74.59225</longitude>
+    </point>
+    <point>
+        <type>mosque</type>
+        <gender>joint</gender>
+        <name>Центральная</name>
+        <description></description>
+        <address>Московская-Горького</address>
+        <latitude>42.86939</latitude>
+        <longitude>74.62152</longitude>
+    </point>
+    <point>
+        <type>mosque</type>
+        <gender>male</gender>
+        <name>Усман</name>
+        <description>конечная 164</description>
+        <address>ул. Кустанайская</address>
+        <latitude>42.88327</latitude>
+        <longitude>74.51112</longitude>
+    </point>
+</points>
