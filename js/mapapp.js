@@ -216,9 +216,22 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
         // define the elements of the menu
         items: {
             setPosition: {name: "Мое мeстоположение", icon:"marker-icon.png", callback: function(key, opt){ onMapClick(contextE); }},
-            bar: {name: "Bar", callback: function(key, opt){ alert("Bar!") }}
+            newPoint: {name: "New point", callback: function(){ $('.context-menu-list').contextMenu("hide"); openEdit(contextE); }},
         }
         // there's more, have a look at the demos and docs...
     });
+    
+    
+    function openEdit(e){
+            var title = 'Добавить новое место молитвы';
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+
+            $(this).paulund_modal_box_edit({
+                title: title,
+                lat: lat,
+                lng: lng
+            });
+    }
     
 });

@@ -56,16 +56,18 @@ function generatePointTagFromPrayerPlaceObject($prayerPlace, $dom, $point){
 	$description = $dom->createElement('description');
 	$latitude = $dom->createElement('latitude');
 	$longitude = $dom->createElement('longitude');
+        $status = $dom->createElement('status');
 
-	$point->appendChild($type);
+        $point->appendChild($type);
 	$point->appendChild($gender);
 	$point->appendChild($name);
 	$point->appendChild($address);
 	$point->appendChild($description);
 	$point->appendChild($latitude);
 	$point->appendChild($longitude);
+        $point->appendChild($status);
 
-	$type_text = $dom->createTextNode($prayerPlace->type);
+        $type_text = $dom->createTextNode($prayerPlace->type);
 	$gender_text = $dom->createTextNode($prayerPlace->gender);
 	$name_text = $dom->createTextNode($prayerPlace->name);
 	$address_text = $dom->createTextNode($prayerPlace->address);
