@@ -13,15 +13,23 @@
 
 <?php
 
+include_once 'model/config.php';
+$PointsCollection = array();
 
-include 'model/PrayerPlaceCollection.php';
+if(DATASOURCE == "xml"){
+    include 'model/PrayerPlaceCollection.php';
 
-$xmlfile = 'points/geopoints.xml';
-$PlacesCollection = getPointsCollectionFromFile($xmlfile);
+    $xmlfile = 'points/geopoints.xml';
+    $PlacesCollection = getPointsCollectionFromFile($xmlfile);
+    $PointsCollection = $PlacesCollection->GetItems();
+}
+else if(DATASOURCE == "mysql"){
+    
+}
 $i=1;?>
 <div class="list-block">
 <ul class="map-list">
-<?php foreach($PlacesCollection->GetItems() as $place):
+<?php foreach($PointsCollection as $place):
     $placeTypeStr = "";
     switch ($place->type){
         case "mosque":

@@ -56,18 +56,16 @@ function generatePointTagFromPrayerPlaceObject($prayerPlace, $dom, $point){
 	$description = $dom->createElement('description');
 	$latitude = $dom->createElement('latitude');
 	$longitude = $dom->createElement('longitude');
-        $status = $dom->createElement('status');
 
-        $point->appendChild($type);
+	$point->appendChild($type);
 	$point->appendChild($gender);
 	$point->appendChild($name);
 	$point->appendChild($address);
 	$point->appendChild($description);
 	$point->appendChild($latitude);
 	$point->appendChild($longitude);
-        $point->appendChild($status);
 
-        $type_text = $dom->createTextNode($prayerPlace->type);
+	$type_text = $dom->createTextNode($prayerPlace->type);
 	$gender_text = $dom->createTextNode($prayerPlace->gender);
 	$name_text = $dom->createTextNode($prayerPlace->name);
 	$address_text = $dom->createTextNode($prayerPlace->address);
@@ -94,6 +92,7 @@ function generatePointTagFromMySqlRow($prayerPlaceRow, $dom, $point) {
     $description = $dom->createElement('description');
     $latitude = $dom->createElement('latitude');
     $longitude = $dom->createElement('longitude');
+    $status = $dom->createElement('status');
 
     $point->appendChild($type);
     $point->appendChild($gender);
@@ -102,6 +101,7 @@ function generatePointTagFromMySqlRow($prayerPlaceRow, $dom, $point) {
     $point->appendChild($description);
     $point->appendChild($latitude);
     $point->appendChild($longitude);
+    $point->appendChild($status);
 
     $type_text = $dom->createTextNode($prayerPlaceRow["TYPE"]);
     $gender_text = $dom->createTextNode($prayerPlaceRow["GENDER"]);
@@ -110,6 +110,7 @@ function generatePointTagFromMySqlRow($prayerPlaceRow, $dom, $point) {
     $description_text = $dom->createTextNode($prayerPlaceRow["DESCRIPTION"]);
     $latitude_text = $dom->createTextNode($prayerPlaceRow["LATITUDE"]);
     $longitude_text = $dom->createTextNode($prayerPlaceRow["LONGITUDE"]);
+    $status_text = $dom->createTextNode($prayerPlaceRow['STATUS']);
 
     $type->appendChild($type_text);
     $gender->appendChild($gender_text);
@@ -118,6 +119,7 @@ function generatePointTagFromMySqlRow($prayerPlaceRow, $dom, $point) {
     $description->appendChild($description_text);
     $latitude->appendChild($latitude_text);
     $longitude->appendChild($longitude_text);
+    $status->appendChild($status_text);
 
     return $point;
 }

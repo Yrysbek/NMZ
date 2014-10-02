@@ -164,7 +164,7 @@
 		 function add_popup_box(){
                      $(location).attr('href');
 			 var pop_up = $('<div class="paulund_modal_box"><a class="paulund_modal_close"></a><div class="paulund_inner_modal_box"><h2>' + options.title + '</h2>'
-                                +'<form id="form_909760" class="appnitro" method="get" action="'+window.location.hostname+'/model/setPoint.php">'
+                                +'<form id="form_909760" class="appnitro" method="get" action="model/setPoint.php">'
                                  +'<label>Название: </label><div><input id = "element_1" name = "name" type = "text" maxlength = "255" value = "name"></div><br>' 
                                 + '<label>Адрес: </label><div><input id = "element_2" name = "address" type = "text" maxlength = "255" value = "address"></div><br>' 
                                 + '<label>Примечание: </label><div><input id = "element_3" name = "description" type = "text" maxlength = "255" value = "description"></div><br>' 
@@ -180,7 +180,7 @@
                                 + '<input type="hidden" name="lat" value="'+options.lat+'">'
                                 + '<input type="hidden" name="lng" value="'+options.lng+'">'
                                 + '<input type="hidden" name="operation" value="add">'
-                                + '<input type="hidden" name="status" value="1">'
+                                + '<input type="hidden" name="status" value="2">'
                                 +'<input type="submit" value="Сохранить"><input type="button" value="Отмена" id="close">'
                                 +'<!--div class="map"><div id="map"></div></div--></div></div></form>');
 			 $(pop_up).appendTo('.paulund_block_page');

@@ -69,22 +69,28 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
         popupAnchor:  [3, -48] // point from which the popup should open relative to the iconAnchor
     });
     
-    function getMarkerIcon(type, gender){
-        var icon_url = "js/images/";
+    function getMarkerIcon(type, gender, status){
+        var icon_url = "";
         if(type == "mosque"){
             icon_url += "mosque";
         }
-        else if(type == "proom"){
+        else{// if(type == "proom"){
             icon_url += "proom";
         }
         
-        icon_url += "_"+gender+".png";
+        if(status == "unconfirmed"){
+            icon_url = "unconfirmed_" + icon_url;
+        }
         
-        //alert(icon_url);
+        if(gender != "undefined"){
+            icon_url += "_"+gender;
+        }
+        icon_url = "js/images/" + icon_url + ".png";
         
         return L.icon({
         iconUrl: icon_url,
         shadowUrl: 'js/images/marker-shadow.png',
+        
 
         iconSize:     [40, 50], // size of the icon
         shadowSize:   [55, 40], // size of the shadow
@@ -94,13 +100,13 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
     });
     }
     
-    function addMarker(type, gender, name, address, description, latitude, longitude){
+    function addMarker(type, gender, name, address, description, latitude, longitude, status){
         var output_str = "<b>";
         if(type==="mosque")
                 output_str+="Мечеть";
         else if(type==="proom")
                 output_str+="Намазкана";
-        var marker = L.marker([latitude, longitude], {icon: getMarkerIcon(type, gender)});
+        var marker = L.marker([latitude, longitude], {icon: getMarkerIcon(type, gender, status)});
         output_str += " - " + name + "</b>";
         var gender_str="<br>Тип: ";
         if(gender==="joint")gender_str+="М/Ж";else if(gender==="male")gender_str+="М";else if(gender==="female")gender_str+="Ж";
@@ -198,7 +204,8 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
                     description = jQuery(this).find('description').text(),
                     latitude = jQuery(this).find('latitude').text(),
                     longitude = jQuery(this).find('longitude').text();
-                    addMarker(type, gender, name, address, description, latitude, longitude);
+                    status = jQuery(this).find('status').text();
+                    addMarker(type, gender, name, address, description, latitude, longitude, status);
                     iterator_number++;
             }
 	);

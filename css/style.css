@@ -64,6 +64,7 @@ html, body {
     width: 85%;
     margin: 0 5%;
     border-top: 1px solid rgb(204, 204, 204);
+    padding: 10px 0;
 }
 
 #play-google{
@@ -133,7 +134,8 @@ html, body {
     font-weight:bold;
     font-style:normal;
     height:31px;
-    line-height:31px;
+    border-radius:5px;
+    line-height:25px;
     width:188px;
     text-decoration:none;
     text-align:center;

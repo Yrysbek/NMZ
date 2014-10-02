@@ -31,7 +31,7 @@
             <input type="button" class="btnStyle" value="<?php echo $lang['btn_clear']; ?>"  id="btn_clear"/>
         </div>
         <div class="footer">
-            <script type="text/javascript">(function() {
+            <!--script type="text/javascript">(function() {
                 if (window.pluso)if (typeof window.pluso.start == "function") return;
                 if (window.ifpluso==undefined) { window.ifpluso = 1;
                   var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
@@ -42,12 +42,13 @@
                 }})();</script>
             <div id="social-share">
                 <div class="pluso" data-background="transparent" data-options="small,round,line,horizontal,counter,theme=04" data-services="vkontakte,odnoklassniki,facebook,twitter,google,moimir" data-url="http://www.namaz.kg"></div>
-            </div>
+            </div-->
             <div id="play-google">
                 <a target="_blank" href="https://play.google.com/store/apps/details?id=kg.aravan.MapApp">
                     <img src="https://developer.android.com/images/brand/ru_generic_rgb_wo_45.png"></img>
                 </a>
             </div>
+            <div class="fb-like" data-href="https://www.facebook.com/namaz.kg" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" data-width="350"></div>
         </div>
     </div>
     <div id="map-block">
