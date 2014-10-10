@@ -73,7 +73,7 @@ if(DATASOURCE == 'xml'){
                                 .(($gender != 'all')?"AND (`G`.`NAME` = 'joint' OR `G`.`NAME` = LOWER('$gender')) ":" ") 
                                 .(($type != 'all')?"AND `T`.`NAME` = LOWER('$type') ":" ")
                         . "ORDER BY (ABS( $lat - `LATITUDE` ) + ABS( $lng -  `LONGITUDE` )) "
-                        . "LIMIT 0, $count");
+                        . (($count > 0)?"LIMIT 0, $count":" "));
     
     $dom = new DOMDocument('1.0', 'utf-8');
     $points = $dom->createElement('points');
