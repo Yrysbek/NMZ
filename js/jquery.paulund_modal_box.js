@@ -29,7 +29,8 @@
                         zoom: '15',
                         type: '',
                         gender: '',
-                        name: ''
+                        name: '',
+                        status: ''
 		},prop);
                 
                 add_block_page();
@@ -42,7 +43,7 @@
                 L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
                     maxZoom: 18
                 }).addTo(map);
-                var marker = L.marker([options.lat, options.lng],{icon: getMarkerIcon(options.type, options.gender)}).addTo(map);
+                var marker = L.marker([options.lat, options.lng],{icon: getMarkerIcon(options.type, options.gender, options.status)}).addTo(map);
 		marker.bindPopup(getPopupText());
                 
                 function getPopupText(){
@@ -62,18 +63,23 @@
                  * @param {type} gender
                  * @returns {unresolved}
                  */
-                function getMarkerIcon(type, gender) {
-                    var icon_url = "js/images/";
+                function getMarkerIcon(type, gender, status) {
+                    var icon_url = "";
                     if (type == "mosque") {
                         icon_url += "mosque";
                     }
-                    else if (type == "proom") {
+                    else {// if(type == "proom"){
                         icon_url += "proom";
                     }
 
-                    icon_url += "_" + gender + ".png";
+                    if (status == "unconfirmed") {
+                        icon_url = "unconfirmed_" + icon_url;
+                    }
 
-                    //alert(icon_url);
+                    if (gender != "undefined") {
+                        icon_url += "_" + gender;
+                    }
+                    icon_url = "js/images/" + icon_url + ".png";
 
                     return L.icon({
                         iconUrl: icon_url,
@@ -131,6 +137,7 @@
 				'height':(options.height - 50) + 'px',
 				'width':(options.width - 50) + 'px',
 				'padding':'10px',
+                                
 				'margin':'15px',
 				'border-radius':'10px',
 				'-moz-border-radius':'10px',

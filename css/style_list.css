@@ -19,6 +19,7 @@ ul li {
 .li-content{
     height: 100%;
     vertical-align: text-top;
+    cursor: pointer;
 }
 .li-content p{
     margin-top: -5px;
@@ -95,4 +96,10 @@ ul li {
 
 #page-map{
     margin-left: 3em;
+}
+
+span.search-text { 
+    color: rgb(84, 124, 46);
+    text-decoration: underline;
+    background-color: rgba(146, 214, 153, 0.35);
 }

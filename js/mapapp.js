@@ -117,6 +117,9 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
             var distance = myPosition.distanceTo(marker.getLatLng()).toFixed(2);
             output_str += "<br>Расстояние: "+distance.toString()+" м";
         }
+        if(status == "unconfirmed"){
+            output_str += "<br><span style='color:red;'>Не подтвержден</span>";
+        }
 
         nearMarkers.addLayer(marker);
         marker.bindPopup(output_str);
@@ -146,8 +149,7 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
         clearAllMarkers();
         show_distance = false;
         var ajaxCall = $.ajax({type: "GET",
-            url: "points/geopoints.xml",
-            dataType: "xml"
+            url: "model/getPoints.php"
         });
 
         $.when(ajaxCall).then(function(xml) { 
@@ -222,23 +224,42 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
         selector: ".context-menu-one",
         // define the elements of the menu
         items: {
-            setPosition: {name: "Мое мeстоположение", icon:"marker-icon.png", callback: function(key, opt){ onMapClick(contextE); }},
-            newPoint: {name: "New point", callback: function(){ $('.context-menu-list').contextMenu("hide"); openEdit(contextE); }},
+            setPosition: 
+                    {
+                        name: "Мое мeстоположение", 
+                        icon:"marker-icon.png", 
+                        callback: function(key, opt){ 
+                            onMapClick(contextE); 
+                        }
+                    },
+            newPoint: 
+                    {
+                        name: "New point", 
+                        callback: function(){ 
+        
+                            clearAllMarkers();
+                            addMyPosition(contextE.latlng);
+                            
+                            $('.context-menu-list').contextMenu("hide"); 
+                            openEdit(contextE); 
+                        }
+                    },
         }
         // there's more, have a look at the demos and docs...
     });
     
     
     function openEdit(e){
-            var title = 'Добавить новое место молитвы';
-            var lat = e.latlng.lat;
-            var lng = e.latlng.lng;
+        
+        var title = 'Добавить новое место молитвы';
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
 
-            $(this).paulund_modal_box_edit({
-                title: title,
-                lat: lat,
-                lng: lng
-            });
+        $(this).paulund_modal_box_edit({
+            title: title,
+            lat: lat,
+            lng: lng
+        });
     }
     
 });

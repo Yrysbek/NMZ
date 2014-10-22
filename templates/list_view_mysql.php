@@ -1,3 +1,10 @@
+<?php
+session_start();
+$admin = false;
+if(isset($_SESSION['admin'])){
+    $admin = $_SESSION['admin'];
+}
+?>
 <div id="logo-block">
     <div id="logo-image"></div>
     <span class="title"><?php  echo $lang['title_list_view']; ?></span>
@@ -10,7 +17,7 @@
     <p><?php echo $lang['list_help_content']; ?></p>
 </div>
 <a class="trigger" href="#" style="position: fixed;"><?php echo $lang['btn_help']; ?></a>
-
+<div class="search-box"><div><input type="text" id="search" /></div></div>
 <div class="list-block">
 <ul class="map-list">
 <?php
@@ -57,19 +64,23 @@ while($place = mysql_fetch_object($query)){
         <div class="li-block">
             <div class="li-content">
                 <h2><a class="place-name" 
+                        data-id="<?php echo $place->id; ?>"
                         data-lat="<?php echo $place->latitude; ?>" 
                         data-lng="<?php echo $place->longitude; ?>" 
                         data-type="<?php echo $place->type; ?>" 
                         data-name="<?php echo $place->name; ?>"
                         data-addr="<?php echo $place->address; ?>"
                         data-desc="<?php echo $place->description; ?>"
-                        data-gender="<?php echo $place->gender; ?>"><?php echo $i.". $placeTypeStr - ".$place->name; ?></a></h2>
+                        data-gender="<?php echo $place->gender; ?>"
+                        data-status="<?php echo $place->status; ?>"><?php echo $i.". $placeTypeStr - <span class='place-name'>".$place->name."</span>"; ?></a></h2>
                 <p>
                     <span class="address"><?php echo $lang['place_address'].': '.$place->address; ?></span><br>
                     <span class="description"><?php echo $lang['place_description'].': '.$place->description; ?></span>
                 </p>
             </div>
-            <div class="clear"></div>
+            <?php if($admin){ ?>
+                <div class="admin"></div>
+            <?php } ?>
         </div>
     </li>
 <?php 
@@ -89,6 +100,7 @@ $(document).ready(function(){
         var name = $(this).find('a').attr('data-name');
         var desc = $(this).find('a').attr('data-desc');
         var addr = $(this).find('a').attr('data-addr');
+        var status = $(this).find('a').attr('data-status');
         var title = $(this).find('a').text();
         
         $(this).paulund_modal_box({
@@ -99,9 +111,23 @@ $(document).ready(function(){
             type: type,
             gender: gender,
             description: desc,
-            address: addr
+            address: addr,
+            status: status
         });
     });
     
+    $('#search').keyup(function(key){
+        var search = $('#search').val();
+        $('li').each(function(){
+            $(this).hide();
+            var placeName = $(this).find('a.place-name').text();
+            var regex = new RegExp(search, "i");
+            var res = placeName.match(regex);
+            if(res){
+                $(this).find('a.place-name').html($(this).find('a.place-name').text().replace(regex, "<span class='search-text'>"+res[0]+"</span>"));
+                $(this).show();
+            }
+        });
+    });
 });
 </script>

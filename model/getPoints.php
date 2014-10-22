@@ -10,9 +10,6 @@ $lat = $_GET["lat"];
 $lng = $_GET["lng"];
 $type = $_GET["type"];
 
-if(!isset($gender) || !isset($type)){
-    return;
-}
 if(DATASOURCE == 'xml'){
     
     include_once("PrayerPlaceCollection.php");
@@ -31,9 +28,17 @@ if(DATASOURCE == 'xml'){
         $SortedPrayerPlaceArray = $PlacesCollection->GetItems();
     }
 
-    if(!isset($_GET['count'])){
+    if(!isset($count)){
         $SortedPrayerPlaceArray = $PlacesCollection->GetItems();
         $count = $allPointsCount;
+    }
+    
+    if(!isset($type)){
+        $type = "all";
+    }
+    
+    if(!isset($gender)){
+        $gender = "all";
     }
 
     $dom = new DOMDocument('1.0', 'utf-8');
@@ -70,9 +75,9 @@ if(DATASOURCE == 'xml'){
                             . "INNER JOIN `gender` AS `G` ON `G`.`ID` = `P`.`GENDER` "
                             . "INNER JOIN `status` AS `S` ON `S`.`ID` = `P`.`STATUS` "
                         . "WHERE 1 = 1 "
-                                .(($gender != 'all')?"AND (`G`.`NAME` = 'joint' OR `G`.`NAME` = LOWER('$gender')) ":" ") 
-                                .(($type != 'all')?"AND `T`.`NAME` = LOWER('$type') ":" ")
-                        . "ORDER BY (ABS( $lat - `LATITUDE` ) + ABS( $lng -  `LONGITUDE` )) "
+                                .(($gender != '' && $gender != 'all')?"AND (`G`.`NAME` = 'joint' OR `G`.`NAME` = LOWER('$gender')) ":" ") 
+                                .(($type != '' && $type != 'all')?"AND `T`.`NAME` = LOWER('$type') ":" ")
+                        . (($lat>0 && $lng>0)?"ORDER BY (ABS( $lat - `LATITUDE` ) + ABS( $lng -  `LONGITUDE` )) ":" ")
                         . (($count > 0)?"LIMIT 0, $count":" "));
     
     $dom = new DOMDocument('1.0', 'utf-8');
