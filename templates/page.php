@@ -8,7 +8,7 @@
 	<head>
             <script src="js/jquery-1.11.1.min.js"></script>
             <script src="js/jquery.paulund_modal_box.js"></script>
-            <script src="js/jquery.paulund_modal_box_edit.js"></script>
+            <script src="js/jquery.paulund_modal_box_add.js"></script>
             <link rel="shortcut icon" href="img/logo.ico" />
             <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
 	    <script src="analyticstracking.js"></script>

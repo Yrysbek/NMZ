@@ -255,10 +255,11 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
         var lat = e.latlng.lat;
         var lng = e.latlng.lng;
 
-        $(this).paulund_modal_box_edit({
+        $(this).paulund_modal_box_add({
             title: title,
             lat: lat,
-            lng: lng
+            lng: lng,
+            zoom: 16
         });
     }
     

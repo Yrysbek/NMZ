@@ -27,6 +27,11 @@ html, body {
     cursor: default;
 }
 
+#map-add{
+    height: 100%;
+    width: 100%;    
+}
+
 #left-block{
     height: 100%;
     width: 22%;
@@ -220,3 +225,9 @@ label.css-label {
 /* Стили для ссылок пунктов меню: */ 
 .context-menu ul li a { color: #333; text-decoration: none; font-size: 12px; display: block; padding: 5px; }              
 .context-menu ul li a:hover { background-color: #eee; }  
+
+.map-add{
+    width: 60%;
+    float: left;
+    height: 400px;
+}

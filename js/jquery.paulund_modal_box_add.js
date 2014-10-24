@@ -12,12 +12,12 @@
 
 	// Defining our jQuery plugin
 
-	$.fn.paulund_modal_box_edit = function(prop){
+	$.fn.paulund_modal_box_add = function(prop){
 
 		// Default parameters
 
 		var options = $.extend({
-			height : "620",
+			height : "550",
 			width : "800",
 			title:"JQuery Modal Box Demo",
                         address:'',
@@ -29,8 +29,7 @@
                         zoom: '15',
                         type: '',
                         gender: '',
-                        name: '',
-                        id: ''
+                        name: ''
 		},prop);
                 
                 add_block_page();
@@ -39,21 +38,21 @@
 
                 $('.paulund_modal_box').fadeIn();
 
-                var map = L.map('map').setView([options.lat, options.lng], options.zoom);
-                L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek1.il6iklih/{z}/{x}/{y}.png', {
+                var map = L.map('map-add').setView([options.lat, options.lng], options.zoom);
+                L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
                     maxZoom: 18
                 }).addTo(map);
-                var marker = L.marker([options.lat, options.lng],{icon: getMarkerIcon(options.type, options.gender), draggable: true}).addTo(map);
+                var marker = L.marker([options.lat, options.lng],{ draggable: true}).addTo(map);
 		marker.bindPopup(getPopupText());
                 
-                function getPopupText() {
+                function getPopupText(){
                     var popupText = '';
                     popupText += '<b>' + $('#element_1').val() + '</b>';
-                    if ($('#element_2').val() !== '') {
-                        popupText += '<br>' + $('#element_2').val();
+                    if($('#element_2').val() !== ''){
+                        popupText += '<br>'+$('#element_2').val();                        
                     }
                     if ($('#element_3').val() !== '') {
-                        popupText += '<br>' + $('#element_3').val();
+                        popupText += '<br>'+$('#element_3').val();
                     }
                     return popupText;
                 }
@@ -64,18 +63,21 @@
                  * @returns {unresolved}
                  */
                 function getMarkerIcon(type, gender) {
-                    var icon_url = "js/images/";
-                    if (type == "mosque") {
-                        icon_url += "mosque";
+                    var icon_url = '';
+                    
+                    if(type != '' && gender != '' && type != 'undefined' && gender != 'undefined'){
+                        icon_url = "js/images/";
+                        if (type == "mosque") {
+                            icon_url += "mosque";
+                        } else if (type == "proom") {
+                            icon_url += "proom";
+                        }
+
+                        icon_url += "_" + gender + ".png";
+                    } else {
+                        icon_url = 'js/images/undefined.png';
                     }
-                    else if (type == "proom") {
-                        icon_url += "proom";
-                    }
-
-                    icon_url += "_" + gender + ".png";
-
-                    //alert(icon_url);
-
+                    
                     return L.icon({
                         iconUrl: icon_url,
                         shadowUrl: 'js/images/marker-shadow.png',
@@ -138,11 +140,11 @@
 				'-webkit-border-radius':'10px'
 			});
                         $('.map').css({
-                            'width': '60%',
-                            'height': '450px',
+                            'width': '90%',
+                            'height': '220px',
                             'border': '1px solid rgb(204, 204, 204)',
                             'bottom': '25px',
-                            'float': 'left'
+                            'position': 'absolute'
                         });
                         $('#map').css({
                             'width': '100%',
@@ -166,28 +168,24 @@
                      $(location).attr('href');
 			 var pop_up = $('<div class="paulund_modal_box"><a class="paulund_modal_close"></a><div class="paulund_inner_modal_box"><h2>' + options.title + '</h2>'
                                 +'<form id="form_909760" class="appnitro" method="get" action="model/setPoint.php">'
-                                 +'<div style="width:35%;float:left;padding:0 1%;"><label>Название: </label><div><input class="add-element text" id = "element_1" name = "name" type = "text" maxlength = "255" value = "'+options.name+'"></div><br>' 
-                                + '<label>Адрес: </label><div><input class="add-element text" id = "element_2" name = "address" type = "text" maxlength = "255" value = "'+options.address+'"></div><br>' 
-                                + '<label>Примечание: </label><div><input class="add-element text" id = "element_3" name = "description" type = "text" maxlength = "255" value = "'+options.description+'"></div><br>' 
+                                 +'<div style="float:left; width: 35%; padding: 0 1%;"><label>Название: </label><div><input class="add-element text" id = "element_1" name = "name" type = "text" maxlength = "255" value = "name"></div><br>' 
+                                + '<label>Адрес: </label><div><input class="add-element text" id = "element_2" name = "address" type = "text" maxlength = "255" value = "address"></div><br>' 
+                                + '<label>Примечание: </label><div><input class="add-element text" id = "element_3" name = "description" type = "text" maxlength = "255" value = "description"></div><br>' 
                                 + '<label class = "description"> Тип: </label><br>'
-                                +'<input id = "" name = "type" class = "element radio" type = "radio" value = "undefined"> <label class = "choice" for = "element_4_1"> Неизвестно </label><br>'
-                                +'<input id = "" name = "type" class = "element radio" type = "radio" value = "mosque" '+((options.type == 'mosque')?'checked':'')+'> <label class = "choice" for = "element_4_2"> Мечеть </label><br>'
-                                +'<input id = "" name = "type" class = "element radio" type = "radio" value = "proom" ' + ((options.type == 'proom') ? 'checked' : '') + '> <label class = "choice" for = "element_4_3"> Намазкана </label><br><br> ' 
+                                +'<input id = "" name = "type" class = "add-element radio" type = "radio" value = "undefined" checked> <label class = "choice" for = "element_4_1"> Неизвестно </label><br>'
+                                +'<input id = "" name = "type" class = "add-element radio" type = "radio" value = "mosque"> <label class = "choice" for = "element_4_2"> Мечеть </label><br>'
+                                +'<input id = "" name = "type" class = "add-element radio" type = "radio" value = "proom"> <label class = "choice" for = "element_4_3"> Намазкана </label><br><br> ' 
                                 + '<label class = "description" for = "element_4"> Гендер: </label><br>'
-                                + '<input id = "" name = "gender" class = "element radio" type = "radio" value = "undefined"> <label class = "choice" for = "element_4_1"> Неизвестно </label><br>'
-                                + '<input id = "" name = "gender" class = "element radio" type = "radio" value = "male"  ' + ((options.gender == 'male') ? 'checked' : '') + '> <label class = "choice" for = "element_4_2"> Мужской </label><br>'
-                                + '<input id = "" name = "gender" class = "element radio" type = "radio" value = "female"  ' + ((options.gender == 'female') ? 'checked' : '') + '> <label class = "choice" for = "element_4_3"> Женский </label><br>' 
-                                + '<input id = "" name = "gender" class = "element radio" type = "radio" value = "joint"  ' + ((options.gender == 'joint') ? 'checked' : '') + '> <label class = "choice" for = "element_4_3"> Мужской/Женский </label><br>' 
-                                + '<br><label class = "status"> Статус: </label><br>'
-                                + '<input id = "" name = "status" class = "element radio" type = "radio" value = "unconfirmed"> <label class = "choice" for = "element_4_1"> Не подтверждено </label><br>'
-                                + '<input id = "" name = "status" class = "element radio" type = "radio" value = "confirmed" ' + ((options.type == 'mosque') ? 'checked' : '') + '> <label class = "choice" for = "element_4_2"> Подтверждено </label><br><br>'
+                                + '<input id = "" name = "gender" class = "add-element radio" type = "radio" value = "undefined" checked> <label class = "choice" for = "element_4_1"> Неизвестно </label><br>'
+                                + '<input id = "" name = "gender" class = "add-element radio" type = "radio" value = "male"> <label class = "choice" for = "element_4_2"> Мужской </label><br>'
+                                + '<input id = "" name = "gender" class = "add-element radio" type = "radio" value = "female"> <label class = "choice" for = "element_4_3"> Женский </label><br>' 
+                                + '<input id = "" name = "gender" class = "add-element radio" type = "radio" value = "joint"> <label class = "choice" for = "element_4_3"> Мужской/Женский </label><br><br>' 
                                 + '<input type="hidden" name="lat" value="'+options.lat+'">'
                                 + '<input type="hidden" name="lng" value="'+options.lng+'">'
-                                + '<input type="hidden" name="operation" value="edit">'
-                                + '<input type="hidden" name="id" value="'+options.id+'">'
+                                + '<input type="hidden" name="operation" value="add">'
                                 + '<input type="hidden" name="status" value="2">'
                                 +'<input type="submit" value="Сохранить"><input type="button" value="Отмена" id="close"></div>'
-                                +'<div class="map"><div id="map"></div></div></div></div></form>');
+                                +'<div class="map-add"><div id="map-add"></div></div></div></div></form>');
 			 $(pop_up).appendTo('.paulund_block_page');
 			 			 
 			 $('.paulund_modal_close').click(hideModal);
@@ -198,17 +196,22 @@
                             $('.paulund_block_page').fadeOut().remove();	
                          }
 		}
-                
-                $('input.element.radio').click(function(){
-                   var type = $("input[name='type']:checked").val();
-                   var gender = $("input[name='gender']:checked").val();
-                   //var status = $("input[name='status']:checked").val();
-                   marker.setIcon(getMarkerIcon(type, gender));
+
+                $('input.add-element.radio').click(function() {
+                    var type = $("input[name='type'].add-element:checked").val();
+                    var gender = $("input[name='gender'].add-element:checked").val();
+                    //var status = $("input[name='status']:checked").val();
+                    marker.setIcon(getMarkerIcon(type, gender));
                 });
                 
-                $('input.add-element.text').focusout(function() {
-                    marker.bindPopup(getPopupText());
-                    marker.openPopup();
+                $('input.add-element.text').focusout(function(){
+                        marker.bindPopup(getPopupText());
+                        marker.openPopup();
+                });
+                
+                marker.on('dragend',function(){
+                    $('input[name="lat-add"]').val(marker.getLatLng().lat);
+                    $('input[name="lng-add"]').val(marker.getLatLng().lng);
                 });
                 
 		return this;

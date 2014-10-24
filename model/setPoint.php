@@ -51,8 +51,8 @@ function editPoint(){
             . "`DESCRIPTION` = '$description', "
             . "`LATITUDE` = $latitude, "
             . "`LONGITUDE` = $longitude, "
-            . "`GENDER` = $gender, "
-            . "`TYPE` = $type, "
+            . "`GENDER` = (SELECT `ID` FROM `gender` WHERE `NAME` = '$gender'), "
+            . "`TYPE` = (SELECT `ID` FROM `types` WHERE `NAME` = '$type'), "
             . "`STATUS` = $status, "
             . "WHERE `ID` = $id") or die("error on editing point");
     
@@ -86,8 +86,8 @@ function addPoint(){
                 . "'$description',"
                 . "$latitude,"
                 . "$longitude,"
-                . "$type,"
-                . "$gender,"
+                . "(SELECT `ID` FROM `types` WHERE `NAME` = '$type'),"
+                . "(SELECT `ID` FROM `gender` WHERE `NAME` = '$gender'),"
                 . "$status)");
     if(!$query){
         echo mysql_error();

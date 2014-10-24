@@ -79,7 +79,7 @@ while($place = mysql_fetch_object($query)){
                 </p>
             </div>
             <?php if($admin){ ?>
-                <div class="admin"></div>
+            <div class="admin"><a class="edit-place">Изменить</a></div>
             <?php } ?>
         </div>
     </li>
@@ -127,6 +127,33 @@ $(document).ready(function(){
                 $(this).find('a.place-name').html($(this).find('a.place-name').text().replace(regex, "<span class='search-text'>"+res[0]+"</span>"));
                 $(this).show();
             }
+        });
+    });
+    
+    $('a.edit-place').click(function(e){ 
+        var place = $(this).parent().parent().find('a.place-name');
+        var id = place.attr('data-id');
+        var lat = place.attr('data-lat');
+        var lng = place.attr('data-lng');
+        var type = place.attr('data-type');
+        var gender = place.attr('data-gender');
+        var name = place.attr('data-name');
+        var desc = place.attr('data-desc');
+        var addr = place.attr('data-addr');
+        var status = place.attr('data-status');
+        var title = place.text();
+        
+        $(this).paulund_modal_box_edit({
+            id: id,
+            title: title,
+            name: name,
+            lat: lat,
+            lng: lng,
+            type: type,
+            gender: gender,
+            description: desc,
+            address: addr,
+            status: status
         });
     });
 });

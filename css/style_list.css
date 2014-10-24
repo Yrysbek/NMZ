@@ -1,8 +1,11 @@
 
 
 ul li {
-    font-size: 20px;
     font-family: arial;
+}
+
+.admin a.edit-place{
+    font-size: 12px;
 }
 
 .map-list li {
@@ -17,7 +20,7 @@ ul li {
 
 }
 .li-content{
-    height: 100%;
+    height: 70%;
     vertical-align: text-top;
     cursor: pointer;
 }
