@@ -1,10 +1,14 @@
 <div id="logo-block">
-    <div id="logo-image"></div>
-    <span class="title"><?php  echo $lang['title_list_view']; ?></span>
+    <img src="img/logo.png" style="width:50px;height:60px;float:left;margin-right:15px;">
+    <div class="site-name">NAMAZ.kg</div>
+    <span class="title"><?php echo $lang['title_list_view']; ?></span>
 </div>
 <div id="lang"><a href="language.php?lang=ru">ru</a> | <a href="language.php?lang=en">en</a> | <a href="language.php?lang=kg">kg</a></div>
-<div id="page-map"><a href="index.php"><?php echo $lang['page_map'];?></a></div>
+<div id="page-map">
+    <a href="index.php" style="line-height: 40px;"><img src="img/map-icon.png" style="width:40px;height:40px;float:left;margin-right:15px;"><?php echo $lang['page_map']; ?></a>
+</div>
 
+<div class="search"><div class="search-box"><div class="search-title">Поиск:</div><input type="text" id="search" /></div></div>
 
 <div class="panel" style="position: fixed;">
     <p><?php echo $lang['list_help_content']; ?></p>
@@ -62,30 +66,3 @@ $i=1;?>
 <?php $i++; endforeach ?>
 </ul>
 </div>
-<script>
-$(document).ready(function(){
-    
-    $('.li-content').click(function(e){ 
-        var lat = $(this).find('a').attr('data-lat');
-        var lng = $(this).find('a').attr('data-lng');
-        var type = $(this).find('a').attr('data-type');
-        var gender = $(this).find('a').attr('data-gender');
-        var name = $(this).find('a').attr('data-name');
-        var desc = $(this).find('a').attr('data-desc');
-        var addr = $(this).find('a').attr('data-addr');
-        var title = $(this).find('a').text();
-        
-        $(this).paulund_modal_box({
-            title: title,
-            name: name,
-            lat: lat,
-            lng: lng,
-            type: type,
-            gender: gender,
-            description: desc,
-            address: addr
-        });
-    });
-    
-});
-</script>
