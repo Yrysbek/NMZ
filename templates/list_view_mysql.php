@@ -6,18 +6,19 @@ if(isset($_SESSION['admin'])){
 }
 ?>
 <div id="logo-block">
-    <div id="logo-image"></div>
+    <img src="img/logo.png" style="width:50px;height:60px;float:left;margin-right:15px;">
+    <div class="site-name">NAMAZ.kg</div>
     <span class="title"><?php  echo $lang['title_list_view']; ?></span>
 </div>
 <div id="lang"><a href="language.php?lang=ru">ru</a> | <a href="language.php?lang=en">en</a> | <a href="language.php?lang=kg">kg</a></div>
-<div id="page-map"><a href="index.php"><?php echo $lang['page_map'];?></a></div>
+<div id="page-map"><a href="index.php" style="line-height: 40px;"><img src="img/map-icon.png" style="width:40px;height:40px;float:left;margin-right:15px;"><?php echo $lang['page_map'];?></a></div>
 
+<div class="search"><div class="search-box"><div class="search-title">Поиск:</div><input type="text" id="search" /></div></div>
 
 <div class="panel" style="position: fixed;">
     <p><?php echo $lang['list_help_content']; ?></p>
 </div>
 <a class="trigger" href="#" style="position: fixed;"><?php echo $lang['btn_help']; ?></a>
-<div class="search-box"><div><input type="text" id="search" /></div></div>
 <div class="list-block">
 <ul class="map-list">
 <?php
@@ -75,7 +76,8 @@ while($place = mysql_fetch_object($query)){
                         data-status="<?php echo $place->status; ?>"><?php echo $i.". $placeTypeStr - <span class='place-name'>".$place->name."</span>"; ?></a></h2>
                 <p>
                     <span class="address"><?php echo $lang['place_address'].': '.$place->address; ?></span><br>
-                    <span class="description"><?php echo $lang['place_description'].': '.$place->description; ?></span>
+                    <span class="description"><?php echo $lang['place_description'].': '.$place->description; ?></span><br>
+                    <?php if($place->status == 'unconfirmed'){ echo '<span>Статус:<span style="color:red;"> Не подтвержден</span></span>'; } ?>
                 </p>
             </div>
             <?php if($admin){ ?>

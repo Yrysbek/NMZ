@@ -37,7 +37,7 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
 
     function addMyPosition(latlng){
         marker = L.marker(latlng);
-        marker.bindPopup("<b>My position</b>").openPopup();
+        marker.bindPopup("<b>Мое местоположение</b>").openPopup();
         markers.addLayer(marker);
     }
 	
@@ -234,7 +234,7 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
                     },
             newPoint: 
                     {
-                        name: "New point", 
+                        name: "Добавить новое место молитвы", 
                         callback: function(){ 
         
                             clearAllMarkers();
@@ -244,6 +244,12 @@ L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
                             openEdit(contextE); 
                         }
                     },
+        },
+        events: {
+            show: function(){
+                clearAllMarkers();
+                addMyPosition(contextE.latlng);
+            }
         }
         // there's more, have a look at the demos and docs...
     });

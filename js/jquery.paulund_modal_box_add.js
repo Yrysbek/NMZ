@@ -168,9 +168,9 @@
                      $(location).attr('href');
 			 var pop_up = $('<div class="paulund_modal_box"><a class="paulund_modal_close"></a><div class="paulund_inner_modal_box"><h2>' + options.title + '</h2>'
                                 +'<form id="form_909760" class="appnitro" method="get" action="model/setPoint.php">'
-                                 +'<div style="float:left; width: 35%; padding: 0 1%;"><label>Название: </label><div><input class="add-element text" id = "element_1" name = "name" type = "text" maxlength = "255" value = "name"></div><br>' 
-                                + '<label>Адрес: </label><div><input class="add-element text" id = "element_2" name = "address" type = "text" maxlength = "255" value = "address"></div><br>' 
-                                + '<label>Примечание: </label><div><input class="add-element text" id = "element_3" name = "description" type = "text" maxlength = "255" value = "description"></div><br>' 
+                                 +'<div style="float:left; width: 35%; padding: 0 1%;"><label>Название: </label><div><input class="add-element text" id = "element_1" name = "name" type = "text" maxlength = "255" value = ""></div><br>' 
+                                + '<label>Адрес: </label><div><input class="add-element text" id = "element_2" name = "address" type = "text" maxlength = "255" value = ""></div><br>' 
+                                + '<label>Примечание: </label><div><input class="add-element text" id = "element_3" name = "description" type = "text" maxlength = "255" value = ""></div><br>' 
                                 + '<label class = "description"> Тип: </label><br>'
                                 +'<input id = "" name = "type" class = "add-element radio" type = "radio" value = "undefined" checked> <label class = "choice" for = "element_4_1"> Неизвестно </label><br>'
                                 +'<input id = "" name = "type" class = "add-element radio" type = "radio" value = "mosque"> <label class = "choice" for = "element_4_2"> Мечеть </label><br>'
@@ -183,7 +183,7 @@
                                 + '<input type="hidden" name="lat" value="'+options.lat+'">'
                                 + '<input type="hidden" name="lng" value="'+options.lng+'">'
                                 + '<input type="hidden" name="operation" value="add">'
-                                + '<input type="hidden" name="status" value="2">'
+                                + '<input type="hidden" name="status" value="unconfirmed">'
                                 +'<input type="submit" value="Сохранить"><input type="button" value="Отмена" id="close"></div>'
                                 +'<div class="map-add"><div id="map-add"></div></div></div></div></form>');
 			 $(pop_up).appendTo('.paulund_block_page');

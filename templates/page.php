@@ -12,6 +12,7 @@
             <link rel="shortcut icon" href="img/logo.ico" />
             <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
 	    <script src="analyticstracking.js"></script>
+            <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
             <?php include $header;?>
 	</head>
 <body>

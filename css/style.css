@@ -205,7 +205,8 @@ label.css-label {
 }
 
 #page-list{
-    margin-left: 1em;
+    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 /* Класс контекстного меню: */ 
@@ -230,4 +231,11 @@ label.css-label {
     width: 60%;
     float: left;
     height: 400px;
+}
+
+.site-name{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 25px;
+    color: rgb(30, 145, 30);
+    text-shadow: 0px 0px 5px #AAE2AF;
 }

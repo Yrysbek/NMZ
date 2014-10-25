@@ -3,10 +3,11 @@
         <div id="logo-block">
             <div id="logo-image" style="display:none;"></div>
             <img src="img/logo.png" style="width:50px;height:60px;float:left;margin-right:15px;"></img>
+            <div class="site-name">NAMAZ.kg</div>
             <span class="title"><?php echo $lang['title_map_view']; ?></span>
         </div>
         <div id="lang"><a href="language.php?lang=ru">ru</a> | <a href="language.php?lang=en">en</a> | <a href="language.php?lang=kg">kg</a></div>
-        <div id="page-list"><a href="list.php"><?php echo $lang['page_list'];?></a></div>
+        <div id="page-list"><a href="list.php" style="line-height: 28px;"><img src="img/list-icon.png" style="width:30px;height:30px;float:left;margin-right:10px;"><?php echo $lang['page_list'];?></a></div>
         <div id="form-block">
             <input type="button" class="btnStyle" value="<?php echo $lang['btn_show_all']; ?>"  id="btn_show_all"/>
 

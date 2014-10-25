@@ -40,10 +40,10 @@
                 $('.paulund_modal_box').fadeIn();
 
                 var map = L.map('map').setView([options.lat, options.lng], options.zoom);
-                L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek1.il6iklih/{z}/{x}/{y}.png', {
+                L.tileLayer('http://{s}.tiles.mapbox.com/v3/rusbek.il6iklih/{z}/{x}/{y}.png', {
                     maxZoom: 18
                 }).addTo(map);
-                var marker = L.marker([options.lat, options.lng],{icon: getMarkerIcon(options.type, options.gender), draggable: true}).addTo(map);
+                var marker = L.marker([options.lat, options.lng],{icon: getMarkerIcon(options.type, options.gender, options.status), draggable: true}).addTo(map);
 		marker.bindPopup(getPopupText());
                 
                 function getPopupText() {
@@ -63,18 +63,23 @@
                  * @param {type} gender
                  * @returns {unresolved}
                  */
-                function getMarkerIcon(type, gender) {
-                    var icon_url = "js/images/";
+                function getMarkerIcon(type, gender, status) {
+                    var icon_url = "";
                     if (type == "mosque") {
                         icon_url += "mosque";
                     }
-                    else if (type == "proom") {
+                    else {// if(type == "proom"){
                         icon_url += "proom";
                     }
 
-                    icon_url += "_" + gender + ".png";
+                    if (status == "unconfirmed") {
+                        icon_url = "unconfirmed_" + icon_url;
+                    }
 
-                    //alert(icon_url);
+                    if (gender != "undefined") {
+                        icon_url += "_" + gender;
+                    }
+                    icon_url = "js/images/" + icon_url + ".png";
 
                     return L.icon({
                         iconUrl: icon_url,
@@ -179,13 +184,12 @@
                                 + '<input id = "" name = "gender" class = "element radio" type = "radio" value = "female"  ' + ((options.gender == 'female') ? 'checked' : '') + '> <label class = "choice" for = "element_4_3"> Женский </label><br>' 
                                 + '<input id = "" name = "gender" class = "element radio" type = "radio" value = "joint"  ' + ((options.gender == 'joint') ? 'checked' : '') + '> <label class = "choice" for = "element_4_3"> Мужской/Женский </label><br>' 
                                 + '<br><label class = "status"> Статус: </label><br>'
-                                + '<input id = "" name = "status" class = "element radio" type = "radio" value = "unconfirmed"> <label class = "choice" for = "element_4_1"> Не подтверждено </label><br>'
-                                + '<input id = "" name = "status" class = "element radio" type = "radio" value = "confirmed" ' + ((options.type == 'mosque') ? 'checked' : '') + '> <label class = "choice" for = "element_4_2"> Подтверждено </label><br><br>'
+                                + '<input id = "" name = "status" class = "element radio" type = "radio" value = "unconfirmed" ' + ((options.status == 'unconfirmed') ? 'checked' : '') + '> <label class = "choice" for = "element_4_1"> Не подтверждено </label><br>'
+                                + '<input id = "" name = "status" class = "element radio" type = "radio" value = "confirmed" ' + ((options.status == 'confirmed') ? 'checked' : '') + '> <label class = "choice" for = "element_4_2"> Подтверждено </label><br><br>'
                                 + '<input type="hidden" name="lat" value="'+options.lat+'">'
                                 + '<input type="hidden" name="lng" value="'+options.lng+'">'
                                 + '<input type="hidden" name="operation" value="edit">'
                                 + '<input type="hidden" name="id" value="'+options.id+'">'
-                                + '<input type="hidden" name="status" value="2">'
                                 +'<input type="submit" value="Сохранить"><input type="button" value="Отмена" id="close"></div>'
                                 +'<div class="map"><div id="map"></div></div></div></div></form>');
 			 $(pop_up).appendTo('.paulund_block_page');
@@ -202,8 +206,8 @@
                 $('input.element.radio').click(function(){
                    var type = $("input[name='type']:checked").val();
                    var gender = $("input[name='gender']:checked").val();
-                   //var status = $("input[name='status']:checked").val();
-                   marker.setIcon(getMarkerIcon(type, gender));
+                   var status = $("input[name='status']:checked").val();
+                   marker.setIcon(getMarkerIcon(type, gender, status));
                 });
                 
                 $('input.add-element.text').focusout(function() {

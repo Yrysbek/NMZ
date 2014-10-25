@@ -45,7 +45,8 @@ function editPoint(){
     $status = $_GET["status"];
     $id = $_GET["id"];
 
-    mysql_query("UPDATE `places` SET "
+    $query = mysql_query(
+            $sql = "UPDATE `places` SET "
             . "`NAME` = '$name', "
             . "`ADDRESS` = '$address', "
             . "`DESCRIPTION` = '$description', "
@@ -53,10 +54,11 @@ function editPoint(){
             . "`LONGITUDE` = $longitude, "
             . "`GENDER` = (SELECT `ID` FROM `gender` WHERE `NAME` = '$gender'), "
             . "`TYPE` = (SELECT `ID` FROM `types` WHERE `NAME` = '$type'), "
-            . "`STATUS` = $status, "
-            . "WHERE `ID` = $id") or die("error on editing point");
-    
-    
+            . "`STATUS` = (SELECT `ID` FROM `status` WHERE `NAME` = '$status') "
+            . "WHERE `ID` = $id");// or die("error on editing point");
+    if (!$query) {
+        echo mysql_error();
+    }
 }
 
 function addPoint(){
@@ -71,7 +73,7 @@ function addPoint(){
     $gender = $_GET["gender"];
     $status = $_GET["status"];
     
-    $query = mysql_query("INSERT INTO `places`"
+    $query = mysql_query( "INSERT INTO `places` "
                 . "(`NAME`, "
                 . "`ADDRESS`, "
                 . "`DESCRIPTION`, "
@@ -88,7 +90,8 @@ function addPoint(){
                 . "$longitude,"
                 . "(SELECT `ID` FROM `types` WHERE `NAME` = '$type'),"
                 . "(SELECT `ID` FROM `gender` WHERE `NAME` = '$gender'),"
-                . "$status)");
+                . "(SELECT `ID` FROM `status` WHERE `NAME` = '$status'))");
+            
     if(!$query){
         echo mysql_error();
     }
@@ -102,5 +105,6 @@ function deletePoint(){
     mysql_query("DELETE FROM `places` "
             . "WHERE `ID` = $id") or die("error on deleting point");
 }
-$actual_link = 'http://'.HOSTURL;
-header("Location: $actual_link");
+
+$refererUrl = $_SERVER['HTTP_REFERER'];
+header("Location: $refererUrl");
