@@ -11,12 +11,12 @@
             <script src="js/jquery.paulund_modal_box_add.js"></script>
             <link rel="shortcut icon" href="img/logo.ico" />
             <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-	    <script src="analyticstracking.js"></script>
+	    <!--script src="analyticstracking.js"></script-->
             <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
             <?php include $header;?>
 	</head>
 <body>
-    <!-- Yandex.Metrika counter -->
+    <!-- Yandex.Metrika counter -- >
     <script type="text/javascript">
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
@@ -47,13 +47,13 @@
     <noscript><div><img src="//mc.yandex.ru/watch/26267172" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
+    <!--script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
       js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.0";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    }(document, 'script', 'facebook-jssdk'));</script-->
 <?php
 include $content; 
 ?>
